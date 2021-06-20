@@ -24,20 +24,8 @@ class DockerScript:
         print('find-ip: List the ip of your machine')
         print('*****************************************************************************')
 
-    def dir_exists(self, dir_path):
-        if not path.isdir(dir_path):
-            print("Directory %s does not exist. Creating one now." % dir_path)
-            try:
-                os.mkdir(dir_path)
-            except OSError:
-                print ("Creation of the directory %s failed" % dir_path)
-            else:
-                print ("Successfully created the directory %s " % dir_path)
-
 
     def print_list(self, print_var):
-        self.dir_exists(DATADIR)
-        self.dir_exists(OUTDIR)
         files = os.listdir(DATADIR)
         if print_var == PrintFormat.FILE:
             fd = open(OUTDIR + OUTNAME, "w")
@@ -60,8 +48,6 @@ class DockerScript:
             fd.close()
 
     def count_all_files(self, print_var):
-        self.dir_exists(DATADIR)
-        self.dir_exists(OUTDIR)
         files = os.listdir(DATADIR)
         file_counts = {}
         total = 0

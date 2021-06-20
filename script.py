@@ -4,8 +4,9 @@ import os
 from os import path
 from enum import Enum
 
-DATADIR = "/home/data/"
-OUTDIR = "/home/output/"
+path = os.getcwd()
+DATADIR = path + "/home/data/"
+OUTDIR = path + "/home/output/"
 OUTNAME = "result.txt"
 
 class PrintFormat(Enum):
